@@ -10,4 +10,3 @@ class Program
 		Console.WriteLine("Welcome to {0}!", str1);
     }
 }
-	
