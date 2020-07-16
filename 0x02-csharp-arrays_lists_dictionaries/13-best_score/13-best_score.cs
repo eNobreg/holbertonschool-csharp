@@ -7,7 +7,7 @@ class Dictionary
     public static string BestScore(Dictionary<string, int> myList)
     {
         string stored_key = "None";
-        int stored_value = -999;
+        int stored_value = -9000;
         foreach(KeyValuePair<string, int> entry in myList) {
             if (stored_value < entry.Value)
             {
@@ -15,8 +15,6 @@ class Dictionary
                 stored_key = entry.Key;
             }
         }
-        if (stored_value = -999)
-            stored_key = "None";
         return (stored_key);
     }
 }
