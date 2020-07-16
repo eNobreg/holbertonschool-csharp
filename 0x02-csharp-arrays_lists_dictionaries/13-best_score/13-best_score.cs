@@ -10,7 +10,10 @@ class Dictionary
         int stored_value = 0;
         foreach(KeyValuePair<string, int> entry in myList) {
             if (stored_value < entry.Value)
+            {
+                stored_value = entry.Value;
                 stored_key = entry.Key;
+            }
         }
         return (stored_key);
     }
