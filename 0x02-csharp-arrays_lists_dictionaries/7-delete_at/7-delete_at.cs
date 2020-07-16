@@ -9,7 +9,7 @@ class List
             Console.WriteLine("Index out of range");
             return myList;
         }
-        myList.RemoveRange(index, 1);
+        myList.RemoveAt(index);
         return(myList);
     }
 }
