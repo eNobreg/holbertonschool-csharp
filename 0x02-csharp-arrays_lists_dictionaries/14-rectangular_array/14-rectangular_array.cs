@@ -14,7 +14,9 @@ class Program
         {
             for (int j = 0; j < matrix.GetLength(1); j++)
             {
-                Console.Write(matrix[i,j] + " ");
+                Console.Write(matrix[i,j]);
+                if (j < matrix.GetLength(1) - 1)
+                    Console.Write(" ");
             }
             Console.WriteLine();
         }
