@@ -8,6 +8,8 @@ class LList
     {
         LinkedListNode<int> current = myLList.First;
         int i = 0;
+        if (index == 0)
+            myLList.RemoveFirst();
         while (current.Next != null)
         {
             i++;
