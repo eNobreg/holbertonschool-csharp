@@ -13,6 +13,8 @@ class LList
         {
             return;
         }
+        if (index > myLList.Count)
+            return;
         if (index == 0)
         {
             myLList.RemoveFirst();
