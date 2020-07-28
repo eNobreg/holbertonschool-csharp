@@ -1,5 +1,5 @@
 # Exceptions in C#
-Handling excpetions in any programming language is important
+Handling excpetions in any programming language is important. This folder is a project repo for Holberton School learning the absolute basics of exceptions
 | Task | File | Description |
 |:---:| --- | --- |
 |0| 0-safe_list_print | Printing the contents of a list while handling out of range exceptions |
