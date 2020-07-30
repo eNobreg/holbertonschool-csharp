@@ -10,7 +10,7 @@ namespace Enemies
     {
         // Pirvate health variable for the class
         int health;
-        string name;
+        string name = "(No name)";
 
         /// <summary>
         /// Initalizes a new instance of a zombie class
@@ -41,6 +41,15 @@ namespace Enemies
         /// The getter and setter property for the Name field
         /// </summary>
         /// <returns>The name stored in the object</returns>
-        public string Name { get; set; } = "(No name)";
+        public string Name
+        { 
+            get 
+            {
+                return name;
+            } set
+            {
+                name = value;
+            } 
+        }
     }
 }
