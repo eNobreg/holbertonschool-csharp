@@ -22,7 +22,7 @@ namespace Enemies
         /// <summary>
         /// Class contructor for the zombie, getter for value
         /// </summary>
-        /// <param name="value"> Health value </param>
+        /// <param name="value">Health value</param>
         public Zombie(int value) {
             if (value >= 0) {
                 health = value;
