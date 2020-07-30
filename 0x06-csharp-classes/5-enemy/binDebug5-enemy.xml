@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>5-enemy</name>
+    </assembly>
+    <members>
+        <member name="T:Enemies.Zombie">
+            <summary>
+            Zombie Enemy class
+            
+            </summary>
+        </member>
+        <member name="M:Enemies.Zombie.#ctor">
+            <summary>
+            Initalizes a new instance of a zombie class
+            </summary>
+        </member>
+        <member name="M:Enemies.Zombie.#ctor(System.Int32)">
+            <summary>
+            Class contructor for the zombie, getter for value
+            </summary>
+            <param name="value">Health value</param>
+        </member>
+        <member name="M:Enemies.Zombie.GetHealth">
+            <summary>
+            Getter for the zombier object's health
+            </summary>
+            <returns>The current zombie object's health</returns>
+        </member>
+        <member name="P:Enemies.Zombie.Name">
+            <summary>
+            The getter and setter property for the Name field
+            </summary>
+            <returns>The name stored in the object</returns>
+        </member>
+        <member name="M:Enemies.Zombie.ToString">
+            <summary>
+            Returns a easily readable string representation
+            of the zombie object. Includes each field unlike the default
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
