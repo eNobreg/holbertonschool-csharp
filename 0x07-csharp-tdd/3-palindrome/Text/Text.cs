@@ -16,6 +16,10 @@ namespace Text
         public static bool IsPalindrome(string s)
         {
             string reversed;
+
+            if (s == null)
+                return (false);
+
             var newstr = String.Join("", s.Where(char.IsLetterOrDigit));
 
             char[] characters = newstr.ToCharArray();

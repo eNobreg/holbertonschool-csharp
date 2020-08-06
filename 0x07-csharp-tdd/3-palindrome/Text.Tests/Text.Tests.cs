@@ -14,7 +14,7 @@ namespace Text.Tests
         }
         
         [Test]
-        public void testFalse([Values("this i a palindromemordnilap a si siht", "adsfggsasgfsda", "ad fggs,,aaasgfs,da")] string str)
+        public void testFalse([Values("this i a palindromemordnilap a si siht", "adsfggsasgfsda", "ad fggs,,aaasgfs,da", null)] string str)
         {
             Assert.That(Text.Str.IsPalindrome(str), Is.False);
         }
