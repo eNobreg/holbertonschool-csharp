@@ -1,12 +1,15 @@
 ﻿using System;
 
-namespace _0_is
+class Obj
 {
-    class Program
+    public static bool IsOfTypeInt(object obj)
     {
-        static void Main(string[] args)
+        if(obj.GetType() == typeof(int))
         {
-            Console.WriteLine("Hello World!");
+            return (true);
         }
+        else
+            return (false);
     }
 }
+
