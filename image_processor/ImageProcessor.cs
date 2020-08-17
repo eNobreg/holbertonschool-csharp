@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Threading;
-using System.Threading.Tasks;
 
 /// <summary>
 /// Class for image processing methods
@@ -37,9 +36,9 @@ class ImageProcessor
 
         Bitmap bmp = new Bitmap(file);
         img_width = bmp.Width;
-        img_height = bmp.Height;
-        filename = file.Substring(7, file.Length - 11);
+        img_height = bmp.Height; 
         extension = file.Substring(file.IndexOf("."));
+        filename = file.Substring(file.IndexOf("/") + 1, file.Length - 7 - extension.Length);
 
         for (int y = 0; y < img_height; y++)
         {

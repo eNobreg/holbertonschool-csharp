@@ -10,7 +10,7 @@ class Program
         if (args.Length > 1)
             filenames = args;
         else
-            filenames = Directory.GetFiles("images/", "*.jpg");
+            filenames = Directory.GetFiles("images/", "*.*");
 
         ImageProcessor.Inverse(filenames);
     }
