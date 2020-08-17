@@ -39,7 +39,7 @@ class ImageProcessor
         img_width = bmp.Width;
         img_height = bmp.Height;
         filename = file.Substring(7, file.Length - 11);
-        extension = file.Substring(file.Length - 4, 4);
+        extension = file.Substring(file.IndexOf("."));
 
         for (int y = 0; y < img_height; y++)
         {
