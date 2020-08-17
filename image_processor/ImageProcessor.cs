@@ -40,8 +40,6 @@ class ImageProcessor
         img_height = bmp.Height;
         filename = file.Substring(7, file.Length - 11);
         extension = file.Substring(file.Length - 4, 4);
-        Console.WriteLine(extension);
-        Console.WriteLine(filename);
 
         for (int y = 0; y < img_height; y++)
         {
@@ -58,6 +56,5 @@ class ImageProcessor
             }
         }
         bmp.Save(filename + "_inverse" + extension);
-        Console.WriteLine($"{filename} done");
     }
 }
