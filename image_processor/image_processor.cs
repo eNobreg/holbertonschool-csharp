@@ -3,8 +3,16 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Threading;
 using System.Threading.Tasks;
+
+/// <summary>
+/// Class for image processing methods
+/// </summary>
 class ImageProcessor
 {
+    /// <summary>
+    /// Invert images based on filenames
+    /// </summary>
+    /// <param name="filenames">List of str filenames to invert</param>
     public static void Inverse(string[] filenames)
     {
         foreach (string file in filenames)
@@ -13,6 +21,11 @@ class ImageProcessor
             t.Start(file);
         }
     }
+
+    /// <summary>
+    /// Invert single image passed by Inverse function
+    /// </summary>
+    /// <param name="data">Single file to invert</param>
 
     public static void invert_image(object data)
     {        
