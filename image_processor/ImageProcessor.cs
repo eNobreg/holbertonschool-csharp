@@ -22,6 +22,11 @@ class ImageProcessor
 			invert_image(file);
         });
     }
+
+	/// <summary>
+	/// Function to invert images
+	/// </summary>
+	/// <param name="data">File to convert</param>
     public static void invert_image(object data)
     {        
         string file = data.ToString();
@@ -46,8 +51,57 @@ class ImageProcessor
         for (int i = 0; i < rgbValues.Length; i++)
             rgbValues[i] = (byte)(255 - rgbValues[i]);
         System.Runtime.InteropServices.Marshal.Copy(rgbValues, 0, ptr, bytes);
-	
+
         bmp.UnlockBits(bmpData);
         bmp.Save(filename + "_inverse" + extension);
     }
+
+
+	/// <summary>
+	/// Converts an image to grayscale
+	/// </summary>
+	/// <param name="filenames">List of image files to convert</param>
+    public static void Grayscale(string[] filenames)
+    {
+        Parallel.ForEach (filenames, file =>
+        {
+			grayscale_image(file);
+        });
+    }
+
+	/// <summary>
+	/// Converts image to grayscale
+	/// </summary>
+	/// <param name="data">File to convert</param>
+    public static void grayscale_image(object data)
+    {        
+        string file = data.ToString();
+        string filename = "";
+        string extension = "";
+
+        Bitmap bmp = new Bitmap(file);
+        extension = Path.GetExtension(file);
+        filename = Path.GetFileNameWithoutExtension(file);
+        // Lock the bitmap's bits.  
+        Rectangle rect = new Rectangle(0, 0, bmp.Width, bmp.Height);
+        BitmapData bmpData = bmp.LockBits(rect, ImageLockMode.ReadWrite, bmp.PixelFormat);
+
+        IntPtr ptr = bmpData.Scan0;
+
+        int bytes  = Math.Abs(bmpData.Stride) * bmp.Height;
+        byte[] rgbValues = new byte[bytes];
+
+        System.Runtime.InteropServices.Marshal.Copy(ptr, rgbValues, 0, bytes);
+
+        // Set every third value to 255. A 24bpp bitmap will look red.  
+        for (int i = 0; i < rgbValues.Length - 3; i += 3)
+		{
+			byte gray = (byte)(rgbValues[i] * .21 + rgbValues[i + 1] * .71 + rgbValues[i + 2] * .071);
+            rgbValues[i] = rgbValues[i + 1] = rgbValues[i + 2] = gray;
+		}
+        System.Runtime.InteropServices.Marshal.Copy(rgbValues, 0, ptr, bytes);
+        bmp.UnlockBits(bmpData);
+        bmp.Save(filename + "_grayscale" + extension);
+    }
+
 }
