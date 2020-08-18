@@ -2,6 +2,7 @@
 using System.IO;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -21,35 +22,32 @@ class ImageProcessor
 			invert_image(file);
         });
     }
-
-    /// <summary>
-    /// Invert single image passed by Inverse function
-    /// </summary>
-    /// <param name="data">Single file to invert</param>
-
     public static void invert_image(object data)
     {        
         string file = data.ToString();
-        int img_width;
-        int img_height;
         string filename = "";
         string extension = "";
 
         Bitmap bmp = new Bitmap(file);
-        img_width = bmp.Width;
-        img_height = bmp.Height; 
         extension = Path.GetExtension(file);
         filename = Path.GetFileNameWithoutExtension(file);
+        // Lock the bitmap's bits.  
+        Rectangle rect = new Rectangle(0, 0, bmp.Width, bmp.Height);
+        BitmapData bmpData = bmp.LockBits(rect, ImageLockMode.ReadWrite, bmp.PixelFormat);
 
-        for (int y = 0; y < img_height; y++)
-        {
-            for (int x = 0; x < img_width; x++)
-            {
-                Color inv = bmp.GetPixel(x, y);
-				inv = Color.FromArgb(255, (255 - inv.R), (255 - inv.G), (255 - inv.B));
-                bmp.SetPixel(x, y, inv);
-            }
-        }
+        IntPtr ptr = bmpData.Scan0;
+
+        int bytes  = Math.Abs(bmpData.Stride) * bmp.Height;
+        byte[] rgbValues = new byte[bytes];
+
+        System.Runtime.InteropServices.Marshal.Copy(ptr, rgbValues, 0, bytes);
+
+        // Set every third value to 255. A 24bpp bitmap will look red.  
+        for (int i = 0; i < rgbValues.Length; i++)
+            rgbValues[i] = (byte)(255 - rgbValues[i]);
+        System.Runtime.InteropServices.Marshal.Copy(rgbValues, 0, ptr, bytes);
+	
+        bmp.UnlockBits(bmpData);
         bmp.Save(filename + "_inverse" + extension);
     }
 }
