@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Threading;
+using System.Threading.Tasks;
 
 /// <summary>
 /// Class for image processing methods
@@ -14,46 +15,36 @@ class ImageProcessor
     /// <param name="filenames">List of str filenames to invert</param>
     public static void Inverse(string[] filenames)
     {
-        foreach (string file in filenames)
+        Parallel.ForEach (filenames, (file) =>
         {
-            Thread t = new Thread(ImageProcessor.invert_image);
-            t.Start(file);
-        }
-    }
+            //Thread t = new Thread(ImageProcessor.invert_image);
+            //t.Start(file);
+        	int img_width;
+        	int img_height;
+        	string filename = "";
+        	string extension = "";
 
-    /// <summary>
-    /// Invert single image passed by Inverse function
-    /// </summary>
-    /// <param name="data">Single file to invert</param>
+        	Bitmap bmp = new Bitmap(file);
+        	img_width = bmp.Width;
+        	img_height = bmp.Height; 
+        	extension = file.Substring(file.IndexOf("."));
+        	filename = file.Substring(file.IndexOf("/") + 1, file.Length - 7 - extension.Length);
 
-    public static void invert_image(object data)
-    {        
-        string file = data.ToString();
-        int img_width;
-        int img_height;
-        string filename = "";
-        string extension = "";
+        	for (int y = 0; y < img_height; y++)
+        	{
+            	for (int x = 0; x < img_width; x++)
+            	{
+                	Color p = bmp.GetPixel(x, y);
 
-        Bitmap bmp = new Bitmap(file);
-        img_width = bmp.Width;
-        img_height = bmp.Height; 
-        extension = file.Substring(file.IndexOf("."));
-        filename = file.Substring(file.IndexOf("/") + 1, file.Length - 7 - extension.Length);
+                	int r = 255 - p.R;
+                	int g = 255 - p.G;
+                	int b = 255 - p.B;
+                	int a = p.A;
 
-        for (int y = 0; y < img_height; y++)
-        {
-            for (int x = 0; x < img_width; x++)
-            {
-                Color p = bmp.GetPixel(x, y);
-
-                int r = 255 - p.R;
-                int g = 255 - p.G;
-                int b = 255 - p.B;
-                int a = p.A;
-
-                bmp.SetPixel(x, y, Color.FromArgb(a, r, g, b));
-            }
-        }
-        bmp.Save(filename + "_inverse" + extension);
+                	bmp.SetPixel(x, y, Color.FromArgb(a, r, g, b));
+            	}
+        	}
+        	bmp.Save(filename + "_inverse" + extension);
+        });
     }
 }
