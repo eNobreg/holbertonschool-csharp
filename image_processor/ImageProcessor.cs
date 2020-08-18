@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Threading;
@@ -15,10 +16,9 @@ class ImageProcessor
     /// <param name="filenames">List of str filenames to invert</param>
     public static void Inverse(string[] filenames)
     {
-        Parallel.ForEach (filenames, (file) =>
+        Parallel.ForEach (filenames, file =>
         {
 			invert_image(file);
-			Task.WaitAll();
         });
     }
 
@@ -38,8 +38,8 @@ class ImageProcessor
         Bitmap bmp = new Bitmap(file);
         img_width = bmp.Width;
         img_height = bmp.Height; 
-        extension = file.Substring(file.IndexOf("."));
-        filename = file.Substring(file.IndexOf("/") + 1, file.Length - 7 - extension.Length);
+        extension = Path.GetExtension(file);
+        filename = Path.GetFileNameWithoutExtension(file);
 
         for (int y = 0; y < img_height; y++)
         {
