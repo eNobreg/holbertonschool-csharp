@@ -2,6 +2,12 @@
 
 class VectorMath
 {
+    /// <summary>
+    ///  Add two 2D or 3D vectors together
+    /// </summary>
+    /// <param name="vector1">First double vector to add together</param>
+    /// <param name="vector2">Second double vector to add together</param>
+    /// <returns>-1 in an array, or an array representing the result vector</returns>
     public static double[] Add(double[] vector1, double[] vector2)
     {
         
