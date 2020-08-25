@@ -5,7 +5,7 @@ class VectorMath
     /// <summary>
     /// Calculates vector length
     /// </summary>
-    /// <param name="vector"> A array oftwo or three nums representing a vector</param>
+    /// <param name="vector"> A array oftwo or three doubles representing a vector</param>
     /// <returns>The length of the missing side, or -1 if it wasn't a valid vector</returns>
     public static double Magnitude(double[] vector)
     {
