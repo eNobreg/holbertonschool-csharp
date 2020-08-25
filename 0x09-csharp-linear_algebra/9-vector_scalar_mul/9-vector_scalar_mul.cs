@@ -2,7 +2,12 @@
 
 class VectorMath
 {
-
+    /// <summary>
+    /// Function to multiply a vector by a scalar value
+    /// </summary>
+    /// <param name="vector">The 2D or 3D vector to multiply </param>
+    /// <param name="scalar">The double, scalar value to multiply by</param>
+    /// <returns>-1 or the resulting vector</returns>
     public static double[] Multiply(double[] vector, double scalar)
     {
 
