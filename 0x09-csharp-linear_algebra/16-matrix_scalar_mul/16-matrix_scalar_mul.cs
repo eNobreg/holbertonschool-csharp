@@ -11,12 +11,12 @@ class MatrixMath
     public static double[,] MultiplyScalar(double[,] matrix, double scalar)
     {
 
-        if (matrix1.GetLength(0) >= 2 && matrix1.GetLength(0) <= 3)
+        if (matrix.GetLength(0) >= 2 && matrix.GetLength(0) <= 3)
         {
-            for (int i = 0; i < matrix1.GetLength(0); i++)
-                for (int j = 0; j < matrix1.GetLength(1); j++)
-                    matrix1[i, j] *= scalar;
-            return (matrix1);
+            for (int i = 0; i < matrix.GetLength(0); i++)
+                for (int j = 0; j < matrix.GetLength(1); j++)
+                    matrix[i, j] *= scalar;
+            return (matrix);
         }
         return (new double[,]{{-1}});
     }
