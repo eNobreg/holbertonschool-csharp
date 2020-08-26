@@ -5,6 +5,7 @@ class MatrixMath
     public static double[,] Rotate2D(double[,] matrix, double angle)
     {
         double [,] rotationMatrix = new double[,] { {Math.Cos(angle), Math.Sin(angle)}, {Math.Sin(angle) * -1, Math.Cos(angle)}};
+
         if (matrix.GetLength(0) != 2 || matrix.GetLength(1) != 2)
             return (new double[,]{{-1}});
 
@@ -15,7 +16,7 @@ class MatrixMath
             {
                 results[i, j] = 0;
                 for (int k = 0; k < 2; k++)
-                    results[i, j] += Math.Round(0 + (matrix[i, k] * rotationMatrix[k, j]), 2);
+                    results[i, j] = Math.Round(0 + (matrix[i, k] * rotationMatrix[k, j]), 2);
             }
         }
         return (results);
