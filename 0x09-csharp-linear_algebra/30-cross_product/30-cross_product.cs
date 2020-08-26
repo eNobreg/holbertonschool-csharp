@@ -2,7 +2,12 @@
 
 class VectorMath
 {
-
+    /// <summary>
+    /// Function that accepts two 3D vectors to produce a cross product
+    /// </summary>
+    /// <param name="vector1">First 3D vector</param>
+    /// <param name="vector2">Second 3D vector</param>
+    /// <returns>-1 on an error, or the resulting cross product</returns>
     public static double[] CrossProduct(double[] vector1, double[] vector2)
     {
         if (vector1.Length != 3 || vector2.Length != 3)
