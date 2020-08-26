@@ -19,11 +19,15 @@ class MatrixMath
 
         if (matrix.GetLength(0) == 3)
         {
-            for (int i = 0; i < 3 ; i++)
-            {
-                det = det + (matrix[0, i] * (matrix[1, (i + 1) % 3] * matrix[2, (i + 2) % 3] -
-                             matrix[1, (i + 2) % 3] * matrix[2, (i + 1) % 3]));
-            }
+            //for (int i = 0; i < 3 ; i++)
+            // det = det + (matrix[0, i] * (matrix[1, (i + 1) % 3] * matrix[2, (i + 2) % 3] - matrix[1, (i + 2) % 3] * matrix[2, (i + 1) % 3]));
+
+            double det_1 = (matrix[1, 1] * matrix[2, 2]) - (matrix[1, 2] * matrix[2, 1]);
+            double det_2 = (matrix[1, 0] * matrix[2, 2]) - (matrix[1, 2] * matrix[2, 0]);
+            double det_3 = (matrix[1, 0] * matrix[2, 1]) - (matrix[1, 1] * matrix[2, 0]);
+
+            det = (matrix[0, 0] * det_1) - (matrix[0, 1] * det_2) + (matrix[0, 2] * det_3);
+
         }
 
         if (matrix.GetLength(0) == 2)
