@@ -30,6 +30,6 @@ class MatrixMath
         {
             det = (matrix[0, 0] * matrix[1, 1]) - (matrix[0, 1] * matrix[1, 0]);
         }
-        return (det);
+        return (Math.Round(det, 2));
     }
 }
