@@ -15,12 +15,10 @@ class MatrixMath
         int m2_y = matrix2.GetLength(0);
         int m2_x = matrix2.GetLength(1);
 
-        if (m2_y != m1_x)
-        {
+        if (m1_x != m2_y)
             return (new double[,]{{-1}});
-        }
 
-        double[,] results = new double[m1_y, m1_x];
+        double[,] results = new double[m1_y, m2_x];
         for (int i = 0; i < m1_y; i++)
         {
             for (int j = 0; j < m2_x; j++)
