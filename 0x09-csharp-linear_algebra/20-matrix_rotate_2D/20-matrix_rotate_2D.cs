@@ -15,7 +15,7 @@ class MatrixMath
             {
                 results[i, j] = 0;
                 for (int k = 0; k < 2; k++)
-                    results[i, j] += Math.Round(matrix[i, k] * rotationMatrix[k, j], 2);
+                    results[i, j] += Math.Round(0 + (matrix[i, k] * rotationMatrix[k, j]), 2);
             }
         }
         return (results);
