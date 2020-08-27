@@ -5,7 +5,7 @@ class MatrixMath
     public static double[,] Inverse2D(double[,] matrix)
     {
         if (matrix == null || matrix.GetLength(0) != 2 || matrix.GetLength(0) != matrix.GetLength(1))
-            return (-1);
+            return (new double[,]{{-1}});
 
         double temp = matrix[1, 1];
 
@@ -24,6 +24,6 @@ class MatrixMath
             matrix[1, 0] /= determinate;
             return (matrix);
         }
-        return (-1);
+        return (new double[,]{{-1}});
     }
 }
