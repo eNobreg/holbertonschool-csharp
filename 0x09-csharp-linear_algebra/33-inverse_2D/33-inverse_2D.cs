@@ -18,10 +18,10 @@ class MatrixMath
 
         if (determinate != 0)
         {
-            matrix[0, 0] /= determinate;
-            matrix[0, 1] /= determinate;
-            matrix[1, 1] /= determinate;
-            matrix[1, 0] /= determinate;
+            for (int i = 0; i < matrix.GetLength(0); i++)
+                for (int j = 0; j < matrix.GetLength(1); j++)
+                    matrix[i, j] = Math.Round(matrix[i, j] / determinate, 2);
+
             return (matrix);
         }
         return (new double[,]{{-1}});
