@@ -2,6 +2,13 @@
 
 class MatrixMath
 {
+    /// <summary>
+    /// Shear a 2D matrix by a factor to a direction
+    /// </summary>
+    /// <param name="matrix">The matrix to shear</param>
+    /// <param name="direction">Direction to shear in, X/Y</param>
+    /// <param name="factor">The factor to shear by</param>
+    /// <returns>A matrix with -1, or The final matrix</returns>
     public static double[,] Shear2D(double[,] matrix, char direction, double factor)
     {
         double [,] shearMatrix = new double[,] {{1, 0}, {0, 1}};
