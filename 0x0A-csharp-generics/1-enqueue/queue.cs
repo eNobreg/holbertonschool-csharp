@@ -3,7 +3,7 @@
 /// <summary>
 /// Custom implementation of a Queue in C#
 /// </summary>
-/// <typeparam name="T"></typeparam>
+/// <typeparam name="T">And given parameter</typeparam>
 class Queue<T>
 {
 	public Node head;
