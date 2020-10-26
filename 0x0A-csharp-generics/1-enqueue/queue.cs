@@ -15,9 +15,12 @@ class Queue<T>
 	/// </summary>
 	public class Node
 	{
-		T value = default(t);
-		Node next = null;
-		public Node value{get; set;}
+		T value = default(T);
+		public Node next = null;
+		public Node(T val)
+		{
+			value = val;
+		}
 
 	}
 
