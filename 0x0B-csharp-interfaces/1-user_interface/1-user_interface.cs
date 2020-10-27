@@ -67,7 +67,7 @@ public interface ICollectable
     void Collect();
 }
 
-class TestObject : Base, IInteractive, IBreakable, ICollectable
+class TestObject : IInteractive, IBreakable, ICollectable
 {
     /// <summary>
     /// The usable durability for the object
@@ -84,24 +84,15 @@ class TestObject : Base, IInteractive, IBreakable, ICollectable
     /// <summary>
     /// The implementation of the collect method
     /// </summary>
-    public void Interact()
-    {
-        // Empty Function
-    }
+    public void Interact() {}
 
     /// <summary>
     /// Implementation of the break method
     /// </summary>
-    public void Break()
-    {
-        // Empty Function
-    }
+    public void Break() {}
 
     /// <summary>
     /// Implementation of the interaction method
     /// </summary>
-    public void Collect()
-    {
-        // Empty Function
-    }
+    public void Collect() {}
 }
