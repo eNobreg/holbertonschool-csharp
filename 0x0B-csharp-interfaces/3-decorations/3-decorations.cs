@@ -1,0 +1,119 @@
+﻿using System;
+
+/// <summary>
+/// Base class for any object
+/// </summary>
+public abstract class Base
+{
+    /// <summary>
+    /// The name object for any inherited object
+    /// </summary>
+    /// <value></value>
+    public string name{ get; set; }
+    
+    /// <summary>
+    /// Override method for to string
+    /// </summary>
+    /// <returns>String representation of the object</returns>
+    public override string ToString()
+    {
+        return ($"{name} is a {this.GetType()}");
+    }
+}
+
+/// <summary>
+/// Interface for interactable objcts
+/// </summary>
+public interface IInteractive
+{
+    /// <summary>
+    /// Basic placeholder for the interact function
+    /// </summary>
+    void Interact();
+}
+
+/// <summary>
+/// Interface for object durability 
+/// </summary>
+public interface IBreakable
+{
+    /// <summary>
+    /// Durability represented by an int
+    /// </summary>
+    /// <value>Any int the function sets</value>
+    int durability{ get; set; }
+
+    /// <summary>
+    /// Placeholder empty implentation of Break
+    /// </summary>
+    void Break();
+}
+
+/// <summary>
+/// Interface for collectables
+/// </summary>
+public interface ICollectable
+{
+    /// <summary>
+    /// Bool value for collected or not
+    /// </summary>
+    /// <value>True or false</value>
+    bool isCollected{ get; set; }
+
+    /// <summary>
+    /// Placeholder implementation of collect
+    /// </summary>
+    void Collect();
+}
+
+class Door : Base, IInteractive
+{
+    public Door(string val = "Door")
+    {
+        this.name = val;
+    }
+    public void Interact()
+    {
+        Console.WriteLine("You try to open the {0}. It's locked.", this.name);
+    }
+}
+
+class Decoration : Base, IInteractive, IBreakable
+{
+    public int durability { get; set; }
+    public bool isQuestItem;
+
+    public Decoration(string name = "Decoration", int durability = 1, bool isQuestItem = false)
+    {
+        if (durability <= 0)
+        {
+            throw new Exception("Durability must be greater than 0");
+        }
+        this.name = name;
+        this.durability = durability;
+        this.isQuestItem = isQuestItem;
+    }
+
+    public void Interact()
+    {
+        if (durability <= 0)
+            Console.WriteLine("The {0} has been broken", this.name);
+        else if (isQuestItem == true)
+            Console.WriteLine("You look at the {0}. There's a key inside.", this.name);
+        else
+            Console.WriteLine("You look at the {0}. Not much to see here.", this.name);
+    }
+
+    public void Break()
+    {
+        durability -= 1;
+        if (durability > 0)
+            Console.WriteLine("You hit the {0}. It cracks.", this.name);
+
+        if (durability == 0)
+            Console.WriteLine("You smash the {0}. What a mess.", this.name);
+
+        if (durability < 0)
+            Console.WriteLine("The {0} is already broken.", this.name);
+    }
+}
