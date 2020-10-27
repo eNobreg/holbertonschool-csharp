@@ -3,7 +3,8 @@
 /// <summary>
 /// Base class for any object
 /// </summary>
-public abstract class Base
+
+abstract class Base
 {
     /// <summary>
     /// The name object for any inherited object
