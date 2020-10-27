@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>1-user_interface</name>
+    </assembly>
+    <members>
+        <member name="T:Base">
+            <summary>
+            Base class for any object
+            </summary>
+        </member>
+        <member name="P:Base.name">
+            <summary>
+            The name object for any inherited object
+            </summary>
+            <value></value>
+        </member>
+        <member name="M:Base.ToString">
+            <summary>
+            Override method for to string
+            </summary>
+            <returns>String representation of the object</returns>
+        </member>
+        <member name="T:IInteractive">
+            <summary>
+            Interface for interactable objcts
+            </summary>
+        </member>
+        <member name="M:IInteractive.Interact">
+            <summary>
+            Basic placeholder for the interact function
+            </summary>
+        </member>
+        <member name="T:IBreakable">
+            <summary>
+            Interface for object durability 
+            </summary>
+        </member>
+        <member name="P:IBreakable.durability">
+            <summary>
+            Durability represented by an int
+            </summary>
+            <value>Any int the function sets</value>
+        </member>
+        <member name="M:IBreakable.Break">
+            <summary>
+            Placeholder empty implentation of Break
+            </summary>
+        </member>
+        <member name="T:ICollectable">
+            <summary>
+            Interface for collectables
+            </summary>
+        </member>
+        <member name="P:ICollectable.isCollected">
+            <summary>
+            Bool value for collected or not
+            </summary>
+            <value>True or false</value>
+        </member>
+        <member name="M:ICollectable.Collect">
+            <summary>
+            Placeholder implementation of collect
+            </summary>
+        </member>
+        <member name="T:TestObject">
+            <summary>
+            Exactly what the name implies, a test class for interfaces
+            </summary>
+        </member>
+        <member name="P:TestObject.durability">
+            <summary>
+            The usable durability for the object
+            </summary>
+            <value>Any number</value>
+        </member>
+        <member name="P:TestObject.isCollected">
+            <summary>
+            The usable collection parameter
+            </summary>
+            <value>True or false value</value>
+        </member>
+        <member name="M:TestObject.Collect">
+            <summary>
+            The implementation of the collect method
+            </summary>
+        </member>
+        <member name="M:TestObject.Break">
+            <summary>
+            Implementation of the break method
+            </summary>
+        </member>
+        <member name="M:TestObject.Interact">
+            <summary>
+            Implementation of the interaction method
+            </summary>
+        </member>
+    </members>
+</doc>
