@@ -89,9 +89,12 @@ class Decoration : Base, IInteractive, IBreakable
         {
             throw new Exception("Durability must be greater than 0");
         }
-        this.name = name;
-        this.durability = durability;
-        this.isQuestItem = isQuestItem;
+        else
+        {
+            this.name = name;
+            this.durability = durability;
+            this.isQuestItem = isQuestItem;
+        }
     }
 
     public void Interact()
