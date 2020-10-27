@@ -86,7 +86,7 @@ public class TestObject : Base, ICollectable, IInteractive, IBreakable
     /// <summary>
     /// The implementation of the collect method
     /// </summary>
-    public void Collect()
+    public void Interact()
     {
         // Empty Function
     }
@@ -102,7 +102,7 @@ public class TestObject : Base, ICollectable, IInteractive, IBreakable
     /// <summary>
     /// Implementation of the interaction method
     /// </summary>
-    public void Interact()
+    public void Collect()
     {
         // Empty Function
     }
