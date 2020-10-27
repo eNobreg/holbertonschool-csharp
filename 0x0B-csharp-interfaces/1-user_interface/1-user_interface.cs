@@ -66,10 +66,7 @@ public interface ICollectable
     void Collect();
 }
 
-/// <summary>
-/// Exactly what the name implies, a test class for interfaces
-/// </summary>
-public class TestObject : Base, ICollectable, IInteractive, IBreakable
+class TestObject : Base, IInteractive, IBreakable, ICollectable
 {
     /// <summary>
     /// The usable durability for the object
