@@ -110,13 +110,12 @@ class Decoration : Base, IInteractive, IBreakable
     public void Break()
     {
         durability -= 1;
+
         if (durability > 0)
             Console.WriteLine("You hit the {0}. It cracks.", this.name);
-
-        if (durability == 0)
+        else if (durability == 0)
             Console.WriteLine("You smash the {0}. What a mess.", this.name);
-
-        if (durability < 0)
+        else
             Console.WriteLine("The {0} is already broken.", this.name);
     }
 }
