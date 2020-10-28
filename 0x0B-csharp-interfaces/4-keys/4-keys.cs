@@ -135,7 +135,7 @@ class Key : Base, ICollectable
         if (isCollected == false)
         {
             isCollected = true;
-            Console.WriteLine("You pick up the {0}", this.name);
+            Console.WriteLine("You pick up the {0}.", this.name);
         }
         else if (isCollected == true)
         {
