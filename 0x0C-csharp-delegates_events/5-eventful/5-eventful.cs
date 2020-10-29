@@ -67,7 +67,7 @@ public class Player
     private void OnCheckStatus(CurrentHPArgs e)
     {
         if (e.currentHp < (this.maxHp / 4))
-            HPCheck = HPValueWarning;
+            HPCheck += HPValueWarning;
         HPCheck(this, e);
     }
 
