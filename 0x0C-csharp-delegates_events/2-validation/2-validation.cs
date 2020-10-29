@@ -59,9 +59,10 @@ public class Player
     /// <param name="heal">Amount to heal</param>
     public void HealDamage(float heal)
     {
-        if (heal <= 0)
+        if (heal < 0)
         {
             Console.WriteLine($"{this.name} heals 0 HP!");
+            heal = 0f;
         }
         else
         {
@@ -77,10 +78,10 @@ public class Player
     /// <param name="newHp">New HP to set it till</param>
     public void ValidateHP(float newHp)
     {
-        if (newHp <= 0)
+        if (newHp < 0)
             this.hp = 0;
-        else if (newHp > maxHp)
-            this.hp = maxHp;
+        else if (newHp > this.maxHp)
+            this.hp = this.maxHp;
         else
             this.hp = newHp;
     }
